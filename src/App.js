@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import { Route, Routes } from "react-router-dom";
+import Contact from "./Components/Features/Features";
+import Home from "./Components/Home/Home";
+import Login from "./Components/LoginAndSignup/Login";
+import SignUp from "./Components/LoginAndSignup/SignUp";
+import News from "./Components/News/News";
+import Review from "./Components/Review/Review";
+import Footer from "./Footer";
+import NavbarTab from "./Navbar";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <NavbarTab />
+      <Routes>
+        <Route exact='true' path='/log_in' element={<Login />} />
+        <Route exact='true' path='/join' element={<SignUp />} />
+        <Route exact='true' path='/' element={<Home />} />
+        <Route exact='true' path='/news' element={<News />} />
+        <Route exact='true' path='/features' element={<Contact />} />
+        <Route exact='true' path='/review' element={<Review />} />
+      </Routes>
+      <Footer />
+    </Fragment>
   );
 }
 
